@@ -35,7 +35,7 @@ class Comment
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAT;
+    private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Conference::class, inversedBy="comments")
@@ -47,6 +47,10 @@ class Comment
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $photoFilename;
+
+    public function __toString(){
+        return $this->email;
+    }
 
     public function getId(): ?int
     {
@@ -89,14 +93,14 @@ class Comment
         return $this;
     }
 
-    public function getCreatedAT(): ?\DateTimeInterface
+    public function getcreatedAt(): ?\DateTimeInterface
     {
-        return $this->createdAT;
+        return $this->createdAt;
     }
 
-    public function setCreatedAT(\DateTimeInterface $createdAT): self
+    public function setcreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->createdAT = $createdAT;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
